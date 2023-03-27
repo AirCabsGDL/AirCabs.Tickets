@@ -1,4 +1,4 @@
-namespace AirCabs.Tickets.Tests.Features.BuyTickets.Steps;
+namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets.Steps;
 
 [Binding]
 public class BuyTicketSuccessSteps
@@ -29,18 +29,6 @@ public class BuyTicketSuccessSteps
 
     [Then(@"the anonymous rider is added to the waiting queue")]
     public void ThenTheAnonymousRiderIsAddedToTheWaitingQueue()
-    {
-        ScenarioContext.StepIsPending();
-    }
-
-    [Then(@"transaction was sent to finance system")]
-    public void ThenTransactionWasSentToFinanceSystem()
-    {
-        ScenarioContext.StepIsPending();
-    }
-
-    [Then(@"success data was sent to the analytic system")]
-    public void ThenSuccessDataWasSentToTheAnalyticSystem()
     {
         ScenarioContext.StepIsPending();
     }

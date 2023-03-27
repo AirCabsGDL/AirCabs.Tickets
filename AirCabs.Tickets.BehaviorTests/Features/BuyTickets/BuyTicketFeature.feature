@@ -10,8 +10,6 @@ Scenarios:
         When the anonymous rider pays 350.00 in cash
         Then a new ticket to the destination is created
         And the anonymous rider is added to the waiting queue
-        * transaction was sent to finance system
-        * success data was sent to the analytic system
         
     Scenario: An anonymous rider wants to buy a cab ticket at the airport stand to travel to their destination paying with a credit card successfully.
         Given an anonymous rider who wants to buy a ticket
@@ -22,8 +20,6 @@ Scenarios:
         When the anonymous rider pays 350.00 using a credit card
         Then a new ticket to the destination is created
         And the anonymous rider is added to the waiting queue
-        * transaction was sent to finance system
-        * success data was sent to the analytic system
 
     Scenario: An anonymous rider wants to buy a cab ticket at the airport stand to travel to their destination but rejects the offer.
         Given an anonymous rider who wants to buy a ticket

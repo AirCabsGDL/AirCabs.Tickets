@@ -1,4 +1,4 @@
-namespace AirCabs.Tickets.Tests.Features.Commons.Riders;
+namespace AirCabs.Tickets.BehaviorTests.Features.Commons.Riders;
 
 [Binding]
 public class GivenRiderSteps

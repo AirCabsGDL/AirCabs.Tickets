@@ -4,7 +4,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BE454CC7-FAF
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{68F5D955-7DCF-4383-B1AE-C712A9913E80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirCabs.Tickets.Tests", "AirCabs.Tickets.Tests\AirCabs.Tickets.Tests.csproj", "{A6522EE5-45D8-4857-92D8-B2919C8A05C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirCabs.Tickets.BehaviorTests", "AirCabs.Tickets.BehaviorTests\AirCabs.Tickets.BehaviorTests.csproj", "{A6522EE5-45D8-4857-92D8-B2919C8A05C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirCabs.Tickets.Tests", "AirCabs.Tickets.Tests\AirCabs.Tickets.Tests.csproj", "{9C41FB7D-B31E-4FBC-BCBE-67FB8C60CFDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,11 +15,16 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A6522EE5-45D8-4857-92D8-B2919C8A05C5} = {68F5D955-7DCF-4383-B1AE-C712A9913E80}
+		{9C41FB7D-B31E-4FBC-BCBE-67FB8C60CFDA} = {68F5D955-7DCF-4383-B1AE-C712A9913E80}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A6522EE5-45D8-4857-92D8-B2919C8A05C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A6522EE5-45D8-4857-92D8-B2919C8A05C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6522EE5-45D8-4857-92D8-B2919C8A05C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6522EE5-45D8-4857-92D8-B2919C8A05C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C41FB7D-B31E-4FBC-BCBE-67FB8C60CFDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C41FB7D-B31E-4FBC-BCBE-67FB8C60CFDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C41FB7D-B31E-4FBC-BCBE-67FB8C60CFDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C41FB7D-B31E-4FBC-BCBE-67FB8C60CFDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

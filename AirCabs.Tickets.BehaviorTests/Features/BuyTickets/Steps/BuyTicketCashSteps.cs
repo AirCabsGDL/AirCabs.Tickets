@@ -1,4 +1,4 @@
-namespace AirCabs.Tickets.Tests.Features.BuyTickets.Steps;
+namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets.Steps;
 
 [Binding]
 public class BuyTicketCashSteps
