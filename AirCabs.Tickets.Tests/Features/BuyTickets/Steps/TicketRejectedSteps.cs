@@ -1,4 +1,4 @@
-namespace AirCabs.Tickets.Tests.Features.CreateTickets.Steps;
+namespace AirCabs.Tickets.Tests.Features.BuyTickets.Steps;
 
 [Binding]
 public class TicketRejectedSteps
@@ -35,6 +35,18 @@ public class TicketRejectedSteps
 
     [Then(@"the system rise an payment rejected error")]
     public void ThenTheSystemRiseAnPaymentRejectedError()
+    {
+        ScenarioContext.StepIsPending();
+    }
+
+    [Then(@"the system informs through an error that the address is outside the coverage zones")]
+    public void ThenTheSystemInformsThroughAnErrorThatTheAddressIsOutsideTheCoverageZones()
+    {
+        ScenarioContext.StepIsPending();
+    }
+
+    [Then(@"address outside coverage area was sent to the analytics system")]
+    public void ThenAddressOutsideCoverageAreaWasSentToTheAnalyticsSystem()
     {
         ScenarioContext.StepIsPending();
     }

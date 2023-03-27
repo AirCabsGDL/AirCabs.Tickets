@@ -1,7 +1,7 @@
-namespace AirCabs.Tickets.Tests.Features.CreateTickets.Steps;
+namespace AirCabs.Tickets.Tests.Features.BuyTickets.Steps;
 
 [Binding]
-public class CreateTicketSuccessSteps
+public class BuyTicketSuccessSteps
 {
     [Given(@"the anonymous rider provides a destination address")]
     public void GivenTheAnonymousRiderProvidesADestinationAddress()
@@ -11,6 +11,12 @@ public class CreateTicketSuccessSteps
 
     [Given(@"destination address is in Zone A has a price of (.*)")]
     public void GivenDestinationAddressIsInZoneAHasAPriceOf(decimal p0)
+    {
+        ScenarioContext.StepIsPending();
+    }
+
+    [Given(@"the destination address is outside the coverage zones")]
+    public void GivenTheDestinationAddressIsOutsideTheCoverageZones()
     {
         ScenarioContext.StepIsPending();
     }

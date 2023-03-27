@@ -22,8 +22,4 @@
 
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Features\CreateTickets\UnitTests" />
-    </ItemGroup>
-
 </Project>

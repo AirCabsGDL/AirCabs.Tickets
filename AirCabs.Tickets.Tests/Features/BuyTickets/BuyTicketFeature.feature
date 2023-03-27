@@ -32,6 +32,14 @@ Scenarios:
         When the anonymous rider reject the offer
         Then the ticket is closed as reject
         * rejected data was sent to the analytic system
+        
+    Scenario: An anonymous rider wants to buy a cab ticket at the airport stand to travel to their destination, but the area has no coverage.
+        Given an anonymous rider who wants to buy a ticket
+        And the anonymous rider provides a destination address
+        * the destination address is outside the coverage zones
+        When the anonymous rider pays 350.00 in cash
+        Then the system informs through an error that the address is outside the coverage zones
+        * address outside coverage area was sent to the analytics system
 
     Scenario: An anonymous rider wants to buy a cab ticket at the airport stand to travel to their destination, but the credit card is rejected.
         Given an anonymous rider who wants to buy a ticket

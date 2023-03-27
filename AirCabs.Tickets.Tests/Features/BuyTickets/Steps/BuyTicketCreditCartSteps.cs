@@ -1,7 +1,7 @@
-namespace AirCabs.Tickets.Tests.Features.CreateTickets.Steps;
+namespace AirCabs.Tickets.Tests.Features.BuyTickets.Steps;
 
 [Binding]
-public class CreateTicketCreditCartSteps
+public class BuyTicketCreditCartSteps
 {
     [Given(@"using credit card as payment method")]
     public void GivenUsingCreditCardAsPaymentMethod()

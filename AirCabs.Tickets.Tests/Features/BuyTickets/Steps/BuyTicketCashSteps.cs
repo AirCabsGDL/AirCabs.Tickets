@@ -1,7 +1,7 @@
-namespace AirCabs.Tickets.Tests.Features.CreateTickets.Steps;
+namespace AirCabs.Tickets.Tests.Features.BuyTickets.Steps;
 
 [Binding]
-public class CreateTicketCashSteps
+public class BuyTicketCashSteps
 {
     [When(@"the anonymous rider pays (.*) in cash")]
     public void WhenTheAnonymousRiderPaysInCash(decimal p0)
