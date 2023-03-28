@@ -21,12 +21,6 @@ public class TicketRejectedSteps
         ScenarioContext.StepIsPending();
     }
 
-    [When(@"the anonymous rider attempts to pay (.*) using the digital method")]
-    public void WhenTheAnonymousRiderAttemptsToPayUsingTheDigitalMethod(decimal p0)
-    {
-        ScenarioContext.StepIsPending();
-    }
-
     [Then(@"the digital payment is rejected")]
     public void ThenTheDigitalPaymentIsRejected()
     {
@@ -39,14 +33,8 @@ public class TicketRejectedSteps
         ScenarioContext.StepIsPending();
     }
 
-    [Then(@"the system informs through an error that the address is outside the coverage zones")]
-    public void ThenTheSystemInformsThroughAnErrorThatTheAddressIsOutsideTheCoverageZones()
-    {
-        ScenarioContext.StepIsPending();
-    }
-
-    [Then(@"address outside coverage area was sent to the analytics system")]
-    public void ThenAddressOutsideCoverageAreaWasSentToTheAnalyticsSystem()
+    [When(@"the anonymous rider attempts to buy a ticket with a credit card")]
+    public void WhenTheAnonymousRiderAttemptsToBuyATicketWithACreditCard()
     {
         ScenarioContext.StepIsPending();
     }

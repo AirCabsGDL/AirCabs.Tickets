@@ -4,25 +4,25 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets.Steps;
 public class BuyTicketCreditCartSteps
 {
     [Given(@"using credit card as payment method")]
-    public void GivenUsingCreditCardAsPaymentMethod()
+    public static void GivenUsingCreditCardAsPaymentMethod()
     {
         ScenarioContext.StepIsPending();
     }
 
     [Given(@"anonymous rider has enough funds")]
-    public void GivenAnonymousRiderHasEnoughFunds()
+    public static void GivenAnonymousRiderHasEnoughFunds()
     {
         ScenarioContext.StepIsPending();
     }
 
-    [When(@"the anonymous rider pays (.*) using a credit card")]
-    public void WhenTheAnonymousRiderPaysUsingACreditCard(decimal p0)
+    [When(@"the anonymous rider pays (.*) with a credit card")]
+    public static void WhenTheAnonymousRiderPaysWithACreditCard(decimal p0)
     {
         ScenarioContext.StepIsPending();
     }
 
     [Given(@"anonymous rider does not have enough funds")]
-    public void GivenAnonymousRiderDoesNotHaveEnoughFunds()
+    public static void GivenAnonymousRiderDoesNotHaveEnoughFunds()
     {
         ScenarioContext.StepIsPending();
     }

@@ -18,9 +18,6 @@ public class BuyTicketCashCashUseCase : IBuyTicketCashUseCase
     public Ticket Execute(BuyTicketCashRequest request)
     {
         var zone = _zoneQueries.GetZoneByAddress(request.Destination);
-        
-        if(zone is null) throw new UncoveredZoneException(request.Destination.GetFullAddress());
-        
         var ticket = new Ticket(request.Destination, zone.Price);
         var cashAmount = new Cash(request.amount);
         

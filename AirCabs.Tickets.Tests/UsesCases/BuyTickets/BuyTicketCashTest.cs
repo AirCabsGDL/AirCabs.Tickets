@@ -12,27 +12,6 @@ namespace AirCabs.Tickets.Tests.UsesCases.BuyTickets;
 public class BuyTicketCashTest
 {
     [Fact]
-    public void Try_to_buy_a_ticket_in_a_address_without_coverage()
-    {
-        // Arrange
-        Address address = new("Fake Street", "City", "Fake State", "Country", "23452");
-        
-        var zoneQueriesMock = new Mock<IZoneQueries>();
-        zoneQueriesMock.Setup(x => x.GetZoneByAddress(address)).Returns(null as Zone);
-
-        var ticketsCommandsMock = new Mock<ITicketsCommands>();
-        IBuyTicketCashUseCase sut = new BuyTicketCashCashUseCase(zoneQueriesMock.Object, ticketsCommandsMock.Object);
-        
-        var buyTicketCashRequest = new BuyTicketCashRequest(address, 500.00m);
-
-        // Act/Assert
-        var exception = Assert.Throws<UncoveredZoneException>(() => sut.Execute(buyTicketCashRequest));
-
-        // Assert
-        Assert.Equal(address.GetFullAddress(), exception.FullAddress);
-    }
-    
-    [Fact]
     public void Try_to_buy_a_ticket_with_insufficient_amount()
     {
         // Arrange
