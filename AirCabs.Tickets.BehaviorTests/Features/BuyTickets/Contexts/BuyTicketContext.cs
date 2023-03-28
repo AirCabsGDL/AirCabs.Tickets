@@ -17,7 +17,7 @@ public class BuyTicketContext
     
     public RiderWaitingQueueMock RiderWaitingQueueMock { get; }
     
-    public Ticket Ticket { get; set; }
+    public Ticket TicketResult { get; set; }
     
     public Cash TotalPayed { get; set; }
 

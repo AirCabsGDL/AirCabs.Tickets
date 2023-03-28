@@ -24,7 +24,7 @@ public class BuyTicketCashSteps
     {
         var zoneQueries = _buyTicketContext.CreateMockForZoneQueries();
 
-        var sut = new BuyTicketCashCashUseCase(zoneQueries, _buyTicketContext.TicketCommandsMock,
+        var sut = new BuyTicketCashUseCase(zoneQueries, _buyTicketContext.TicketCommandsMock,
             _buyTicketContext.RiderWaitingQueueMock);
 
         var totalPayed = new Cash(payAmount);
@@ -33,14 +33,14 @@ public class BuyTicketCashSteps
         
         var result = sut.Execute(buyTicketCashRequest);
         
-        _buyTicketContext.Ticket = result;
+        _buyTicketContext.TicketResult = result;
         _buyTicketContext.TotalPayed = totalPayed;
     }
 
     [Then(@"the rider get a change of (.*)")]
     public void ThenTheRiderGetAChangeOf(decimal change)
     {
-        Assert.Equal(new Cash(change), _buyTicketContext.Ticket.Change);
+        Assert.Equal(new Cash(change), _buyTicketContext.TicketResult.Change);
     }
 
     [Given(@"destination address is outside the covered area, the closest alternative with a price of (.*) will be chosen")]

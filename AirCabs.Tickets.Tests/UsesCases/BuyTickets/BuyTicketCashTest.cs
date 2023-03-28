@@ -27,7 +27,7 @@ public class BuyTicketCashTest
         var ticketsCommandsMock = new Mock<ITicketCommands>();
         var riderWaitingQueueMock = new Mock<RiderWaitingQueueMock>();
 
-        IBuyTicketCashUseCase sut = new BuyTicketCashCashUseCase(zoneQueriesMock.Object, ticketsCommandsMock.Object,
+        IBuyTicketCashUseCase sut = new BuyTicketCashUseCase(zoneQueriesMock.Object, ticketsCommandsMock.Object,
             riderWaitingQueueMock.Object);
         var buyTicketCashRequest = new BuyTicketCashRequest(riderName, address, cashAmount);
 
@@ -55,7 +55,7 @@ public class BuyTicketCashTest
         var ticketsCommandsMock = new TicketCommandsMock();
         var riderWaitingQueueMock = new Mock<RiderWaitingQueueMock>();
 
-        IBuyTicketCashUseCase sut = new BuyTicketCashCashUseCase(zoneQueriesMock.Object, ticketsCommandsMock,
+        IBuyTicketCashUseCase sut = new BuyTicketCashUseCase(zoneQueriesMock.Object, ticketsCommandsMock,
             riderWaitingQueueMock.Object);
 
         var request = new BuyTicketCashRequest(riderName, address, cashAmount);
@@ -93,7 +93,7 @@ public class BuyTicketCashTest
         var ticketsCommandsMock = new TicketCommandsMock();
         var riderWaitingQueueMock = new Mock<RiderWaitingQueueMock>();
 
-        IBuyTicketCashUseCase sut = new BuyTicketCashCashUseCase(zoneQueriesMock.Object, ticketsCommandsMock,
+        IBuyTicketCashUseCase sut = new BuyTicketCashUseCase(zoneQueriesMock.Object, ticketsCommandsMock,
             riderWaitingQueueMock.Object);
 
         var request = new BuyTicketCashRequest(null, address, cashAmount);
@@ -104,7 +104,7 @@ public class BuyTicketCashTest
         // Assert
         Assert.NotNull(ticket);
         Assert.NotNull(ticket.Id);
-        Assert.Equal(address, ticket.Destination);
+        Assert.Equal(address, ticket.Destination); 
         Assert.Equal(zone.Price, ticket.Cost);
         Assert.Equal(expectedChange, ticket.Change);
         Assert.Equal(cashAmount, ticket.TotalPayed);
@@ -127,7 +127,7 @@ public class BuyTicketCashTest
         var riderWaitingQueueMock = new RiderWaitingQueueMock();
 
         IBuyTicketCashUseCase sut =
-            new BuyTicketCashCashUseCase(zoneQueriesMock.Object, ticketsCommandsMock, riderWaitingQueueMock);
+            new  BuyTicketCashUseCase(zoneQueriesMock.Object, ticketsCommandsMock, riderWaitingQueueMock);
 
         var request = new BuyTicketCashRequest(null, address, cashAmount);
 

@@ -12,6 +12,7 @@ public class GivenRiderSteps
         _anonymousRider = anonymousRider;
     }
     
+    
     [Given(@"an anonymous rider who wants to buy a ticket")]
     public void GivenAnAnonymousRiderWhoWantsToBuyATicket()
     {

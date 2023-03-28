@@ -39,19 +39,19 @@ public class BuyTicketSuccessSteps
     [Then(@"a new ticket to the destination is created")]
     public void ThenANewTicketToTheDestinationIsCreated()
     {
-        Assert.NotNull(_buyTicketContext.Ticket);
-        Assert.Equal(_buyTicketContext.Destination, _buyTicketContext.Ticket.Destination);
-        Assert.Equal(_buyTicketContext.DestinationZone.Price, _buyTicketContext.Ticket.Cost);
-        Assert.Equal(_buyTicketContext.TotalPayed, _buyTicketContext.Ticket.TotalPayed);
-        Assert.NotNull(_buyTicketContext.Ticket.Rider);
-        Assert.Equal(_anonymousRider.FirstName, _buyTicketContext.Ticket.Rider!.Name.FirstName);
-        Assert.Equal(_anonymousRider.LastName, _buyTicketContext.Ticket.Rider!.Name.LastName);
+        Assert.NotNull(_buyTicketContext.TicketResult);
+        Assert.Equal(_buyTicketContext.Destination, _buyTicketContext.TicketResult.Destination);
+        Assert.Equal(_buyTicketContext.DestinationZone.Price, _buyTicketContext.TicketResult.Cost);
+        Assert.Equal(_buyTicketContext.TotalPayed, _buyTicketContext.TicketResult.TotalPayed);
+        Assert.NotNull(_buyTicketContext.TicketResult.Rider);
+        Assert.Equal(_anonymousRider.FirstName, _buyTicketContext.TicketResult.Rider!.Name.FirstName);
+        Assert.Equal(_anonymousRider.LastName, _buyTicketContext.TicketResult.Rider!.Name.LastName);
     }
 
     [Then(@"the anonymous rider is added to the waiting queue")]
     public void ThenTheAnonymousRiderIsAddedToTheWaitingQueue()
     {
         Assert.Single(_buyTicketContext.RiderWaitingQueueMock.Tickets);
-        Assert.Equal(_buyTicketContext.Ticket, _buyTicketContext.RiderWaitingQueueMock.Tickets[0]);
+        Assert.Equal(_buyTicketContext.TicketResult, _buyTicketContext.RiderWaitingQueueMock.Tickets[0]);
     }
 }

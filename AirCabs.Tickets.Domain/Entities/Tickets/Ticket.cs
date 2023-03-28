@@ -16,7 +16,7 @@ public class Ticket
         TotalPayed = new Cash();
     }
 
-    public Ticket(IRider? rider, Address destination, Zone destinationZone) : this(destination, destinationZone)
+    public Ticket(IRider rider, Address destination, Zone destinationZone) : this(destination, destinationZone)
     {
         Rider = rider;
     }

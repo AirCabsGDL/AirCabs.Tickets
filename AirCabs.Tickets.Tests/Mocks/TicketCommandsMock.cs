@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using AirCabs.Tickets.Domain.Entities;
 using AirCabs.Tickets.Domain.Entities.Tickets;
 using AirCabs.Tickets.Domain.Ports;
 

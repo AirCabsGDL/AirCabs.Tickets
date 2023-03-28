@@ -48,4 +48,3 @@ Scenarios:
         Then a new ticket to the destination is created
         And the rider get a change of 50.00
         And the anonymous rider is added to the waiting queue
-        

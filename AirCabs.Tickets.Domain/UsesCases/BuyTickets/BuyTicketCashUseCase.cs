@@ -3,14 +3,14 @@ using AirCabs.Tickets.Domain.Ports;
 
 namespace AirCabs.Tickets.Domain.UsesCases.BuyTickets;
 
-public class BuyTicketCashCashUseCase : IBuyTicketCashUseCase
+public class BuyTicketCashUseCase : IBuyTicketCashUseCase
 {
     private readonly IZoneQueries _zoneQueries;
     private readonly ITicketCommands _ticketCommands;
     private readonly IRiderWaitingQueue _riderWaitingQueue;
     private readonly TicketCashFactory _ticketFactory;
 
-    public BuyTicketCashCashUseCase(IZoneQueries zoneQueries, ITicketCommands ticketCommands,
+    public BuyTicketCashUseCase(IZoneQueries zoneQueries, ITicketCommands ticketCommands,
         IRiderWaitingQueue riderWaitingQueue)
     {
         _zoneQueries = zoneQueries;

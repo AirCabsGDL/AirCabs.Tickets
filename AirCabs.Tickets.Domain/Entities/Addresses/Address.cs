@@ -16,9 +16,4 @@ public record Address
         Country = new Country(country);
         ZipCode = new ZipCode(zipCode);
     }
-
-    public string GetFullAddress()
-    {
-        return $"{Street}, {City}, {State}, {Country}, {ZipCode}";
-    }
 }
