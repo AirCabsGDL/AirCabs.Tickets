@@ -17,11 +17,11 @@ public class BuyTicketSuccessSteps
         _buyTicketContext = buyTicketContext;
         _anonymousRider = anonymousRider;
     }
-    
+
     [Given(@"the anonymous rider provides a destination address")]
     public void GivenTheAnonymousRiderProvidesADestinationAddress()
     {
-        _buyTicketContext.Destination = new Address("123 Main St", "New York", "NY",  "US","10001");
+        _buyTicketContext.Destination = new Address("123 Main St", "New York", "NY", "US", "10001");
     }
 
     [Given(@"destination address is in Zone A has a price of (.*)")]
@@ -51,6 +51,7 @@ public class BuyTicketSuccessSteps
     [Then(@"the anonymous rider is added to the waiting queue")]
     public void ThenTheAnonymousRiderIsAddedToTheWaitingQueue()
     {
-        ScenarioContext.StepIsPending();
+        Assert.Single(_buyTicketContext.RiderWaitingQueueMock.Tickets);
+        Assert.Equal(_buyTicketContext.Ticket, _buyTicketContext.RiderWaitingQueueMock.Tickets[0]);
     }
 }

@@ -15,12 +15,15 @@ public class BuyTicketContext
     
     public TicketCommandsMock TicketCommandsMock { get; }
     
+    public RiderWaitingQueueMock RiderWaitingQueueMock { get; }
+    
     public Ticket Ticket { get; set; }
     
     public Cash TotalPayed { get; set; }
 
-    public BuyTicketContext()
+    public BuyTicketContext(RiderWaitingQueueMock riderWaitingQueueMock)
     {
+        RiderWaitingQueueMock = riderWaitingQueueMock;
         TicketCommandsMock = new TicketCommandsMock();
     }
     

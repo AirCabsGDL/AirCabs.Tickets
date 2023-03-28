@@ -130,6 +130,9 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets
 #line 12
         testRunner.And("the rider get a change of 50.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
+#line 13
+        testRunner.And("the anonymous rider is added to the waiting queue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
             }
             this.ScenarioCleanup();
         }

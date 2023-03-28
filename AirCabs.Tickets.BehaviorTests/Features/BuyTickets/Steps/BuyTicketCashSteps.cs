@@ -3,7 +3,6 @@ using AirCabs.Tickets.BehaviorTests.Features.BuyTickets.Contexts;
 using AirCabs.Tickets.Domain.Entities;
 using AirCabs.Tickets.Domain.Entities.Riders;
 using AirCabs.Tickets.Domain.UsesCases.BuyTickets;
-using Moq;
 using Xunit;
 
 namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets.Steps;
@@ -24,7 +23,9 @@ public class BuyTicketCashSteps
     public void WhenTheAnonymousRiderPaysInCash(decimal payAmount)
     {
         var zoneQueries = _buyTicketContext.CreateMockForZoneQueries();
-        var sut = new BuyTicketCashCashUseCase(zoneQueries, _buyTicketContext.TicketCommandsMock);
+
+        var sut = new BuyTicketCashCashUseCase(zoneQueries, _buyTicketContext.TicketCommandsMock,
+            _buyTicketContext.RiderWaitingQueueMock);
 
         var totalPayed = new Cash(payAmount);
         var riderName = new RiderName(_anonymousRiderContext.FirstName, _anonymousRiderContext.LastName);

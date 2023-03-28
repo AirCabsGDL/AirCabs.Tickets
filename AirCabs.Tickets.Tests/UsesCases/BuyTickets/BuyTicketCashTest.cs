@@ -1,4 +1,3 @@
-using System;
 using AirCabs.Tickets.Domain.Entities;
 using AirCabs.Tickets.Domain.Entities.Addresses;
 using AirCabs.Tickets.Domain.Entities.Riders;
@@ -26,8 +25,10 @@ public class BuyTicketCashTest
 
         var zoneQueriesMock = CreateZoneQueriesMock(address, zone);
         var ticketsCommandsMock = new Mock<ITicketCommands>();
+        var riderWaitingQueueMock = new Mock<RiderWaitingQueueMock>();
 
-        IBuyTicketCashUseCase sut = new BuyTicketCashCashUseCase(zoneQueriesMock.Object, ticketsCommandsMock.Object);
+        IBuyTicketCashUseCase sut = new BuyTicketCashCashUseCase(zoneQueriesMock.Object, ticketsCommandsMock.Object,
+            riderWaitingQueueMock.Object);
         var buyTicketCashRequest = new BuyTicketCashRequest(riderName, address, cashAmount);
 
         // Act/Assert
@@ -51,9 +52,11 @@ public class BuyTicketCashTest
         var zone = new Zone("Zone A", ticketPrice);
 
         var zoneQueriesMock = CreateZoneQueriesMock(address, zone);
-
         var ticketsCommandsMock = new TicketCommandsMock();
-        IBuyTicketCashUseCase sut = new BuyTicketCashCashUseCase(zoneQueriesMock.Object, ticketsCommandsMock);
+        var riderWaitingQueueMock = new Mock<RiderWaitingQueueMock>();
+
+        IBuyTicketCashUseCase sut = new BuyTicketCashCashUseCase(zoneQueriesMock.Object, ticketsCommandsMock,
+            riderWaitingQueueMock.Object);
 
         var request = new BuyTicketCashRequest(riderName, address, cashAmount);
 
@@ -87,9 +90,11 @@ public class BuyTicketCashTest
         var zone = new Zone("Zone A", ticketPrice);
 
         var zoneQueriesMock = CreateZoneQueriesMock(address, zone);
-
         var ticketsCommandsMock = new TicketCommandsMock();
-        IBuyTicketCashUseCase sut = new BuyTicketCashCashUseCase(zoneQueriesMock.Object, ticketsCommandsMock);
+        var riderWaitingQueueMock = new Mock<RiderWaitingQueueMock>();
+
+        IBuyTicketCashUseCase sut = new BuyTicketCashCashUseCase(zoneQueriesMock.Object, ticketsCommandsMock,
+            riderWaitingQueueMock.Object);
 
         var request = new BuyTicketCashRequest(null, address, cashAmount);
 
@@ -107,11 +112,38 @@ public class BuyTicketCashTest
         Assert.Single(ticketsCommandsMock.Tickets);
         Assert.Equal(ticketsCommandsMock.Tickets[0], ticket);
     }
-    
+
+    [Fact]
+    public void Buy_a_ticket_an_send_ticket_to_rider_waiting_queue()
+    {
+        // Arrange
+        var ticketPrice = new Cash(450.0m);
+        var cashAmount = new Cash(500.00m);
+        var address = new Address("Fake Street", "City", "Fake State", "Country", "23452");
+        var zone = new Zone("Zone A", ticketPrice);
+
+        var zoneQueriesMock = CreateZoneQueriesMock(address, zone);
+        var ticketsCommandsMock = new TicketCommandsMock();
+        var riderWaitingQueueMock = new RiderWaitingQueueMock();
+
+        IBuyTicketCashUseCase sut =
+            new BuyTicketCashCashUseCase(zoneQueriesMock.Object, ticketsCommandsMock, riderWaitingQueueMock);
+
+        var request = new BuyTicketCashRequest(null, address, cashAmount);
+
+        // Act
+        var ticket = sut.Execute(request);
+
+        // Assert
+        Assert.NotNull(ticket);
+        Assert.Equal(riderWaitingQueueMock.Tickets[0], ticket);
+    }
+
     private static Mock<IZoneQueries> CreateZoneQueriesMock(Address address, Zone zone)
     {
         var zoneQueriesMock = new Mock<IZoneQueries>();
         zoneQueriesMock.Setup(x => x.GetZoneByAddress(address)).Returns(zone);
+
         return zoneQueriesMock;
     }
 }
