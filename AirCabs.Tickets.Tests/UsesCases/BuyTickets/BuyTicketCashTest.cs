@@ -15,8 +15,8 @@ public class BuyTicketCashTest
     public void Try_to_buy_a_ticket_in_a_address_without_coverage()
     {
         // Arrange
-        const string riderTest = "Rider Test";
         Address address = new("Fake Street", "City", "Fake State", "Country", "23452");
+        
         var zoneQueriesMock = new Mock<IZoneQueries>();
         zoneQueriesMock.Setup(x => x.GetZoneByAddress(address)).Returns(null as Zone);
 
@@ -42,8 +42,7 @@ public class BuyTicketCashTest
         Address address = new("Fake Street", "City", "Fake State", "Country", "23452");
         Zone zone = new("Zone A", ticketPrice);
 
-        var zoneQueriesMock = new Mock<IZoneQueries>();
-        zoneQueriesMock.Setup(x => x.GetZoneByAddress(address)).Returns(zone);
+        var zoneQueriesMock = CreateZoneQueriesMock(address, zone);
 
         var ticketsCommandsMock = new Mock<ITicketsCommands>();
         
@@ -68,16 +67,16 @@ public class BuyTicketCashTest
 
         Address address = new("Fake Street", "City", "Fake State", "Country", "23452");
         Zone zone = new("Zone A", ticketPrice);
+        
+        var zoneQueriesMock = CreateZoneQueriesMock(address, zone);
 
-        var zoneQueriesMock = new Mock<IZoneQueries>();
         var ticketsCommandsMock = new TicketsCommandsMock();
-        zoneQueriesMock.Setup(x => x.GetZoneByAddress(address)).Returns(zone);
-
         IBuyTicketCashUseCase sut = new BuyTicketCashCashUseCase(zoneQueriesMock.Object, ticketsCommandsMock);
-        var buyTicketCashRequest = new BuyTicketCashRequest(address, cashAmount);
+        
+        var request = new BuyTicketCashRequest(address, cashAmount);
         
         // Act
-        var ticket = sut.Execute(buyTicketCashRequest);
+        var ticket = sut.Execute(request);
 
         // Assert
         Assert.NotNull(ticket);
@@ -88,5 +87,12 @@ public class BuyTicketCashTest
         Assert.Equal(cashAmount, ticket.TotalPayed.Amount);
         Assert.Single(ticketsCommandsMock.Tickets);
         Assert.Equal(ticketsCommandsMock.Tickets[0], ticket);
+    }
+
+    private static Mock<IZoneQueries> CreateZoneQueriesMock(Address address, Zone zone)
+    {
+        var zoneQueriesMock = new Mock<IZoneQueries>();
+        zoneQueriesMock.Setup(x => x.GetZoneByAddress(address)).Returns(zone);
+        return zoneQueriesMock;
     }
 }
