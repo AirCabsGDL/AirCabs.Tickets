@@ -11,9 +11,10 @@ public class CashTests
     {
         // Arrange
         var cash = new Cash(amount);
+        var addingCash = new Cash(adding);
 
         // Act
-        var result = cash.Add(adding);
+        var result = cash.Add(addingCash);
 
         // Assert
         Assert.Equal(expected, result.Amount);

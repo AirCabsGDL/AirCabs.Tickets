@@ -1,18 +1,45 @@
+using AirCabs.Tickets.BehaviorTests.Contexts;
+using AirCabs.Tickets.BehaviorTests.Features.BuyTickets.Contexts;
+using AirCabs.Tickets.Domain.Entities;
+using AirCabs.Tickets.Domain.Entities.Riders;
+using AirCabs.Tickets.Domain.UsesCases.BuyTickets;
+using Moq;
+using Xunit;
+
 namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets.Steps;
 
 [Binding]
 public class BuyTicketCashSteps
 {
-    [When(@"the anonymous rider pays (.*) in cash")]
-    public void WhenTheAnonymousRiderPaysInCash(decimal p0)
+    private readonly BuyTicketContext _buyTicketContext;
+    private readonly AnonymousRiderContext _anonymousRiderContext;
+
+    public BuyTicketCashSteps(BuyTicketContext buyTicketContext, AnonymousRiderContext anonymousRiderContext)
     {
-        ScenarioContext.StepIsPending();
+        _buyTicketContext = buyTicketContext;
+        _anonymousRiderContext = anonymousRiderContext;
+    }
+    
+    [When(@"the anonymous rider pays (.*) in cash")]
+    public void WhenTheAnonymousRiderPaysInCash(decimal payAmount)
+    {
+        var zoneQueries = _buyTicketContext.CreateMockForZoneQueries();
+        var sut = new BuyTicketCashCashUseCase(zoneQueries, _buyTicketContext.TicketCommandsMock);
+
+        var totalPayed = new Cash(payAmount);
+        var riderName = new RiderName(_anonymousRiderContext.FirstName, _anonymousRiderContext.LastName);
+        var buyTicketCashRequest = new BuyTicketCashRequest(riderName, _buyTicketContext.Destination,totalPayed);
+        
+        var result = sut.Execute(buyTicketCashRequest);
+        
+        _buyTicketContext.Ticket = result;
+        _buyTicketContext.TotalPayed = totalPayed;
     }
 
     [Then(@"the rider get a change of (.*)")]
-    public void ThenTheRiderGetAChangeOf(decimal p0)
+    public void ThenTheRiderGetAChangeOf(decimal change)
     {
-        ScenarioContext.StepIsPending();
+        Assert.Equal(new Cash(change), _buyTicketContext.Ticket.Change);
     }
 
     [Given(@"destination address is outside the covered area, the closest alternative with a price of (.*) will be chosen")]

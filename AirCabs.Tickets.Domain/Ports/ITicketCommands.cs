@@ -1,8 +1,9 @@
 using AirCabs.Tickets.Domain.Entities;
+using AirCabs.Tickets.Domain.Entities.Tickets;
 
 namespace AirCabs.Tickets.Domain.Ports;
 
-public interface ITicketsCommands
+public interface ITicketCommands
 {
     void Save(Ticket ticket);
 }
