@@ -2,7 +2,7 @@ using System;
 using AirCabs.Tickets.Domain.Entities.Addresses;
 using Xunit;
 
-namespace AirCabs.Tickets.Tests.UsesCases.Addresses;
+namespace AirCabs.Tickets.Tests.Entities.Addresses;
 
 public class ZipCodeTest
 {
