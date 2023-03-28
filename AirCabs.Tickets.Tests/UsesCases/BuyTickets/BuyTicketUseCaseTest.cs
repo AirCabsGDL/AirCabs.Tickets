@@ -1,4 +1,6 @@
-using System;
+using AirCabs.Tickets.Domain.Entities.Addresses;
+using AirCabs.Tickets.Domain.Exceptions;
+using AirCabs.Tickets.Domain.UsesCases.BuyTickets;
 using Xunit;
 
 namespace AirCabs.Tickets.Tests.UsesCases.BuyTickets;
@@ -13,58 +15,9 @@ public class BuyTicketUseCaseTest
         IBuyTicketUseCase sut = new BuyTicketUseCase();
 
         // Act/Assert
-        Assert.Throws<UncoveredZoneException>(() => sut.Execute(address));
+        var exception = Assert.Throws<UncoveredZoneException>(() => sut.Execute(address));
+        
+        // Assert
+        Assert.Equal(address.GetFullAddress(), exception.FullAddress);
     }
-}
-
-public class UncoveredZoneException : Exception
-{
-    public string FullAddress { get; }
-
-    public UncoveredZoneException(string address, string? message = null) : base(message)
-    {
-        FullAddress = address;
-    }
-}
-
-public class BuyTicketUseCase : IBuyTicketUseCase
-{
-    public void Execute(Address destination)
-    {
-        throw new UncoveredZoneException("Address");
-    }
-}
-
-public record Address
-{
-    public string Street { get; }
-    public string City { get; }
-    public string State { get; }
-    public string Country { get; }
-    public string ZipCode { get; }
-
-    public Address(string street, string city, string state, string country, string zipCode)
-    {
-        if (string.IsNullOrWhiteSpace(street) || string.IsNullOrWhiteSpace(city) || string.IsNullOrWhiteSpace(state) ||
-            string.IsNullOrWhiteSpace(country) || string.IsNullOrWhiteSpace(zipCode))
-        {
-            throw new ArgumentException("All address fields must be provided.");
-        }
-
-        Street = street;
-        City = city;
-        State = state;
-        Country = country;
-        ZipCode = zipCode;
-    }
-
-    public string GetFullAddress()
-    {
-        return $"{Street}, {City}, {State}, {Country}, {ZipCode}";
-    }
-}
-
-public interface IBuyTicketUseCase
-{
-    public void Execute(Address destination);
 }
