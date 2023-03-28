@@ -3,14 +3,14 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets.Steps;
 [Binding]
 public class TicketRejectedSteps
 {
-    [When(@"the anonymous rider reject the offer")]
-    public void WhenTheAnonymousRiderRejectTheOffer()
+    [When(@"the anonymous rider reject the offer because is to expensive")]
+    public void WhenTheAnonymousRiderRejectTheOfferBecauseIsToExpensive()
     {
         ScenarioContext.StepIsPending();
     }
 
-    [Then(@"the ticket is closed as reject")]
-    public void ThenTheTicketIsClosedAsReject()
+    [Then(@"the ticket is closed as reject with the next reason is to expensive")]
+    public void ThenTheTicketIsClosedAsRejectWithTheNextReasonIsToExpensive()
     {
         ScenarioContext.StepIsPending();
     }

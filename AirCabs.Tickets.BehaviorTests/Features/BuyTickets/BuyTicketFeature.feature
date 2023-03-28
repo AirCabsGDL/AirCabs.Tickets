@@ -25,8 +25,8 @@ Scenarios:
         Given an anonymous rider who wants to buy a ticket
         And the anonymous rider provides a destination address
         * destination address is in Zone A has a price of 350.00
-        When the anonymous rider reject the offer
-        Then the ticket is closed as reject
+        When the anonymous rider reject the offer because is to expensive
+        Then the ticket is closed as reject with the next reason is to expensive
         * rejected data was sent to the analytic system
         
     Scenario: An anonymous rider wants to buy a cab ticket at the airport stand to travel to their destination, but the area has no coverage.
