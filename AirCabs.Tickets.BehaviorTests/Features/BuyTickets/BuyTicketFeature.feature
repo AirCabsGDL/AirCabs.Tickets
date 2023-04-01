@@ -1,4 +1,4 @@
-Feature: Create Ticket Feature
+Feature: Buy a Ticket
 An anonymous rider is allowed to buy a cab ticket at the airport stand.
 
 Scenarios:
@@ -28,8 +28,7 @@ Scenarios:
         * destination address is in Zone A has a price of 350.00
         When the anonymous rider reject the offer because is to expensive
         Then the ticket is closed as reject with the next reason is to expensive
-        * rejected data was sent to the analytic system
-
+        
     Scenario: An anonymous rider wants to buy a cab ticket at the airport stand to travel to their destination, but the credit card is rejected.
         Given an anonymous rider who wants to buy a ticket
         And the anonymous rider provides a destination address
@@ -48,3 +47,4 @@ Scenarios:
         Then a new ticket to the destination is created
         And the rider get a change of 50.00
         And the anonymous rider is added to the waiting queue
+        And a notification event about ride to a not covered area was raised

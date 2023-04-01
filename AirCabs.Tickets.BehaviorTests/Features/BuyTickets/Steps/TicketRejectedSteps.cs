@@ -38,4 +38,10 @@ public class TicketRejectedSteps
     {
         ScenarioContext.StepIsPending();
     }
+
+    [Then(@"a notification event about ride to a not covered area was raised")]
+    public void ThenANotificationEventAboutRideToANotCoveredAreaWasRaised()
+    {
+        ScenarioContext.StepIsPending();
+    }
 }

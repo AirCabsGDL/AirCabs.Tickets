@@ -19,7 +19,7 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class CreateTicketFeatureFeature : object, Xunit.IClassFixture<CreateTicketFeatureFeature.FixtureData>, System.IDisposable
+    public partial class BuyATicketFeature : object, Xunit.IClassFixture<BuyATicketFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -31,7 +31,7 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets
 #line 1 "BuyTicketFeature.feature"
 #line hidden
         
-        public CreateTicketFeatureFeature(CreateTicketFeatureFeature.FixtureData fixtureData, AirCabs_Tickets_BehaviorTests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public BuyATicketFeature(BuyATicketFeature.FixtureData fixtureData, AirCabs_Tickets_BehaviorTests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -40,7 +40,7 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/BuyTickets", "Create Ticket Feature", "An anonymous rider is allowed to buy a cab ticket at the airport stand.\n\nScenario" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/BuyTickets", "Buy a Ticket", "An anonymous rider is allowed to buy a cab ticket at the airport stand.\n\nScenario" +
                     "s:", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -83,7 +83,7 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets
         
         [Xunit.SkippableFactAttribute(DisplayName="An anonymous rider wants to buy a cab ticket at the airport stand to travel to th" +
             "eir destination paying with cash successfully.")]
-        [Xunit.TraitAttribute("FeatureTitle", "Create Ticket Feature")]
+        [Xunit.TraitAttribute("FeatureTitle", "Buy a Ticket")]
         [Xunit.TraitAttribute("Description", "An anonymous rider wants to buy a cab ticket at the airport stand to travel to th" +
             "eir destination paying with cash successfully.")]
         public virtual void AnAnonymousRiderWantsToBuyACabTicketAtTheAirportStandToTravelToTheirDestinationPayingWithCashSuccessfully_()
@@ -139,7 +139,7 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets
         
         [Xunit.SkippableFactAttribute(DisplayName="An anonymous rider wants to buy a cab ticket at the airport stand to travel to th" +
             "eir destination paying with a credit card successfully.")]
-        [Xunit.TraitAttribute("FeatureTitle", "Create Ticket Feature")]
+        [Xunit.TraitAttribute("FeatureTitle", "Buy a Ticket")]
         [Xunit.TraitAttribute("Description", "An anonymous rider wants to buy a cab ticket at the airport stand to travel to th" +
             "eir destination paying with a credit card successfully.")]
         public virtual void AnAnonymousRiderWantsToBuyACabTicketAtTheAirportStandToTravelToTheirDestinationPayingWithACreditCardSuccessfully_()
@@ -198,7 +198,7 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets
         
         [Xunit.SkippableFactAttribute(DisplayName="An anonymous rider wants to buy a cab ticket at the airport stand to travel to th" +
             "eir destination but rejects the offer.")]
-        [Xunit.TraitAttribute("FeatureTitle", "Create Ticket Feature")]
+        [Xunit.TraitAttribute("FeatureTitle", "Buy a Ticket")]
         [Xunit.TraitAttribute("Description", "An anonymous rider wants to buy a cab ticket at the airport stand to travel to th" +
             "eir destination but rejects the offer.")]
         public virtual void AnAnonymousRiderWantsToBuyACabTicketAtTheAirportStandToTravelToTheirDestinationButRejectsTheOffer_()
@@ -242,16 +242,13 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets
 #line 30
         testRunner.Then("the ticket is closed as reject with the next reason is to expensive", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 31
-        testRunner.And("rejected data was sent to the analytic system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
-#line hidden
             }
             this.ScenarioCleanup();
         }
         
         [Xunit.SkippableFactAttribute(DisplayName="An anonymous rider wants to buy a cab ticket at the airport stand to travel to th" +
             "eir destination, but the credit card is rejected.")]
-        [Xunit.TraitAttribute("FeatureTitle", "Create Ticket Feature")]
+        [Xunit.TraitAttribute("FeatureTitle", "Buy a Ticket")]
         [Xunit.TraitAttribute("Description", "An anonymous rider wants to buy a cab ticket at the airport stand to travel to th" +
             "eir destination, but the credit card is rejected.")]
         public virtual void AnAnonymousRiderWantsToBuyACabTicketAtTheAirportStandToTravelToTheirDestinationButTheCreditCardIsRejected_()
@@ -260,7 +257,7 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("An anonymous rider wants to buy a cab ticket at the airport stand to travel to th" +
                     "eir destination, but the credit card is rejected.", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 33
+#line 32
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -280,28 +277,28 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets
             else
             {
                 this.ScenarioStart();
-#line 34
+#line 33
         testRunner.Given("an anonymous rider who wants to buy a ticket", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 35
+#line 34
         testRunner.And("the anonymous rider provides a destination address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 36
+#line 35
         testRunner.And("destination address is in Zone A has a price of 350.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
-#line 37
+#line 36
         testRunner.And("using credit card as payment method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
-#line 38
+#line 37
         testRunner.And("anonymous rider does not have enough funds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
-#line 39
+#line 38
         testRunner.When("the anonymous rider attempts to buy a ticket with a credit card", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 40
+#line 39
         testRunner.Then("the digital payment is rejected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 41
+#line 40
         testRunner.And("the system rise an payment rejected error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -310,7 +307,7 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets
         
         [Xunit.SkippableFactAttribute(DisplayName="An anonymous rider wants to buy a cab ticket at the airport stand with cash, to t" +
             "ravel to an not covered area.")]
-        [Xunit.TraitAttribute("FeatureTitle", "Create Ticket Feature")]
+        [Xunit.TraitAttribute("FeatureTitle", "Buy a Ticket")]
         [Xunit.TraitAttribute("Description", "An anonymous rider wants to buy a cab ticket at the airport stand with cash, to t" +
             "ravel to an not covered area.")]
         public virtual void AnAnonymousRiderWantsToBuyACabTicketAtTheAirportStandWithCashToTravelToAnNotCoveredArea_()
@@ -319,7 +316,7 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("An anonymous rider wants to buy a cab ticket at the airport stand with cash, to t" +
                     "ravel to an not covered area.", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 43
+#line 42
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -339,27 +336,30 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets
             else
             {
                 this.ScenarioStart();
-#line 44
+#line 43
         testRunner.Given("an anonymous rider who wants to buy a ticket", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 45
+#line 44
         testRunner.And("the anonymous rider provides a destination address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 46
+#line 45
         testRunner.And("destination address is outside the covered area, the closest alternative with a p" +
                         "rice of 450.00 will be chosen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
-#line 47
+#line 46
         testRunner.When("the anonymous rider pays 500.00 in cash", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 48
+#line 47
         testRunner.Then("a new ticket to the destination is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 49
+#line 48
         testRunner.And("the rider get a change of 50.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 50
+#line 49
         testRunner.And("the anonymous rider is added to the waiting queue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 50
+        testRunner.And("notification was send to analytics system with the address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -372,12 +372,12 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets
             
             public FixtureData()
             {
-                CreateTicketFeatureFeature.FeatureSetup();
+                BuyATicketFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                CreateTicketFeatureFeature.FeatureTearDown();
+                BuyATicketFeature.FeatureTearDown();
             }
         }
     }
