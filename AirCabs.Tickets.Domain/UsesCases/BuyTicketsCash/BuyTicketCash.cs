@@ -19,7 +19,7 @@ public class BuyTicketCashUseCase : IBuyTicketCashUseCase
         _ticketFactory = new TicketCashFactory();
     }
 
-    public Ticket Execute(BuyTicketCashRequest request)
+    public TicketCash Execute(BuyTicketCashRequest request)
     {
         var zone = _zoneQueries.GetZoneByAddress(request.Destination);
         var ticket = _ticketFactory.CreateTicket(request.RiderName, request.Destination, zone);

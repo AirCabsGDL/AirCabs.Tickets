@@ -359,7 +359,7 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets
         testRunner.And("the anonymous rider is added to the waiting queue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 50
-        testRunner.And("notification was send to analytics system with the address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+        testRunner.And("a notification event about ride to a not covered area was raised", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

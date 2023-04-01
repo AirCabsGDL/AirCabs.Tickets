@@ -5,9 +5,9 @@ namespace AirCabs.Tickets.Domain.Entities.Tickets;
 
 public class TicketCashFactory : ITicketFactory
 {
-    public Ticket CreateTicket(RiderName? rider, Address destination, Zone destinationZone)
+    public TicketCash CreateTicket(RiderName? rider, Address destination, Zone destinationZone)
     {
-       return rider != null ? new Ticket(new AnonymousRider(rider), destination, destinationZone)
-                    : new Ticket(destination, destinationZone);
+       return rider != null ? new TicketCash(new AnonymousRider(rider), destination, destinationZone)
+                    : new TicketCash(destination, destinationZone);
     }
 }

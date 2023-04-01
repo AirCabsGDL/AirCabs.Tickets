@@ -5,7 +5,7 @@ namespace AirCabs.Tickets.Domain.UsesCases.BuyTicketsCreditCard;
 
 public class BuyTicketCreditCard : IBuyTicketCreditCard
 {
-    public Ticket Execute()
+    public TicketCash Execute()
     {
         throw new PaymentDeclineException("Payment Declined");
     }

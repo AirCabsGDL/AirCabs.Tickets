@@ -5,17 +5,17 @@ namespace AirCabs.Tickets.BehaviorTests.Mocks;
 
 public class RiderWaitingQueueMock : IRiderWaitingQueue
 {
-    private readonly List<Ticket> _tickets;
+    private readonly List<TicketCash> _tickets;
 
     public RiderWaitingQueueMock()
     {
-        _tickets = new List<Ticket>();
+        _tickets = new List<TicketCash>();
     }
     
-    public IReadOnlyList<Ticket> Tickets => _tickets.AsReadOnly();
+    public IReadOnlyList<TicketCash> Tickets => _tickets.AsReadOnly();
     
-    public void AddTicket(Ticket ticket)
+    public void AddTicket(TicketCash ticketCash)
     {
-        _tickets.Add(ticket);
+        _tickets.Add(ticketCash);
     }
 }

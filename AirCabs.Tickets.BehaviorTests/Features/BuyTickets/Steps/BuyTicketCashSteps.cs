@@ -33,14 +33,14 @@ public class BuyTicketCashSteps
         
         var result = sut.Execute(buyTicketCashRequest);
         
-        _buyTicketContext.TicketResult = result;
+        _buyTicketContext.TicketCashResult = result;
         _buyTicketContext.TotalPayed = totalPayed;
     }
 
     [Then(@"the rider get a change of (.*)")]
     public void ThenTheRiderGetAChangeOf(decimal change)
     {
-        Assert.Equal(new Cash(change), _buyTicketContext.TicketResult.Change);
+        Assert.Equal(new Cash(change), _buyTicketContext.TicketCashResult.Change);
     }
 
     [Given(@"destination address is outside the covered area, the closest alternative with a price of (.*) will be chosen")]

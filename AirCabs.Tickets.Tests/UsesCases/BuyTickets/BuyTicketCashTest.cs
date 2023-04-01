@@ -66,14 +66,14 @@ public class BuyTicketCashTest
         // Assert
         Assert.NotNull(ticket);
         Assert.NotNull(ticket.Id);
-        Assert.Equal(address, ticket.Destination);
+        Assert.Equal(address, ticket.Summary.Destination);
         Assert.Equal(zone, ticket.DestinationZone);
-        Assert.Equal(zone.Price, ticket.Cost);
+        Assert.Equal(zone.Price, ticket.Summary.Cost);
         Assert.Equal(expectedChange, ticket.Change);
-        Assert.Equal(cashAmount, ticket.TotalPayed);
-        Assert.NotNull(ticket.Rider);
-        Assert.NotNull(ticket.Rider?.Id);
-        Assert.Equal(ticket.Rider?.Name, ticket.Rider?.Name);
+        Assert.Equal(cashAmount, ticket.Summary.TotalPayed);
+        Assert.NotNull(ticket.Summary.Rider);
+        Assert.NotNull(ticket.Summary.Rider?.Id);
+        Assert.Equal(ticket.Summary.Rider?.Name, ticket.Summary.Rider?.Name);
         Assert.Single(ticketsCommandsMock.Tickets);
         Assert.Equal(ticketsCommandsMock.Tickets[0], ticket);
     }
@@ -104,11 +104,11 @@ public class BuyTicketCashTest
         // Assert
         Assert.NotNull(ticket);
         Assert.NotNull(ticket.Id);
-        Assert.Equal(address, ticket.Destination); 
-        Assert.Equal(zone.Price, ticket.Cost);
+        Assert.Equal(address, ticket.Summary.Destination); 
+        Assert.Equal(zone.Price, ticket.Summary.Cost);
         Assert.Equal(expectedChange, ticket.Change);
-        Assert.Equal(cashAmount, ticket.TotalPayed);
-        Assert.Null(ticket.Rider);
+        Assert.Equal(cashAmount, ticket.Summary.TotalPayed);
+        Assert.Null(ticket.Summary.Rider);
         Assert.Single(ticketsCommandsMock.Tickets);
         Assert.Equal(ticketsCommandsMock.Tickets[0], ticket);
     }

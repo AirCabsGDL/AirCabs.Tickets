@@ -9,7 +9,7 @@ public class TicketRejectedSteps
         ScenarioContext.StepIsPending();
     }
 
-    [Then(@"the ticket is closed as reject with the next reason is to expensive")]
+    [Then(@"the ticketCash is closed as reject with the next reason is to expensive")]
     public void ThenTheTicketIsClosedAsRejectWithTheNextReasonIsToExpensive()
     {
         ScenarioContext.StepIsPending();
@@ -33,7 +33,7 @@ public class TicketRejectedSteps
         ScenarioContext.StepIsPending();
     }
 
-    [When(@"the anonymous rider attempts to buy a ticket with a credit card")]
+    [When(@"the anonymous rider attempts to buy a ticketCash with a credit card")]
     public void WhenTheAnonymousRiderAttemptsToBuyATicketWithACreditCard()
     {
         ScenarioContext.StepIsPending();

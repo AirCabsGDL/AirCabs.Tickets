@@ -4,5 +4,5 @@ namespace AirCabs.Tickets.Domain.UsesCases.BuyTicketsCreditCard;
 
 public interface IBuyTicketCreditCard
 {
-    Ticket Execute();
+    TicketCash Execute();
 }
