@@ -16,9 +16,8 @@ public class BuyTicketCreditCard : IBuyTicketCreditCard
     
     public TicketCreditCard Execute(BuyTicketCreditCardRequest request)
     {
-        var zone = _creditCardPorts.ZoneQueries.GetZoneByAddress(request.Destination);
         var ticketFactory = new TicketFactory();
-        
+        var zone = _creditCardPorts.ZoneQueries.GetZoneByAddress(request.Destination);
         var ticket = ticketFactory.CreateTicketCreditCard(request.RiderName, request.Destination, zone);
         
         _paymentCommands.PayWithCreditCard(ticket.Summary.Cost);
