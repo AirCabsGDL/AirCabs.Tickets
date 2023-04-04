@@ -19,7 +19,7 @@ public class BuyTicketContext
     
     public TicketCash TicketCashResult { get; set; }
     
-    public Cash TotalPayed { get; set; }
+    public Money TotalPayed { get; set; }
 
     public BuyTicketContext(RiderWaitingQueueMock riderWaitingQueueMock)
     {

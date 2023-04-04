@@ -10,8 +10,8 @@ public class CashTests
     public void Subtract_Quantity_to_cash(decimal amount, decimal adding, decimal expected)
     {
         // Arrange
-        var cash = new Cash(amount);
-        var addingCash = new Cash(adding);
+        var cash = new Money(amount);
+        var addingCash = new Money(adding);
 
         // Act
         var result = cash.Subtract(addingCash);

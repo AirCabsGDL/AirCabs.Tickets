@@ -2,7 +2,7 @@ using AirCabs.Tickets.BehaviorTests.Contexts;
 using AirCabs.Tickets.BehaviorTests.Features.BuyTickets.Contexts;
 using AirCabs.Tickets.Domain.Entities;
 using AirCabs.Tickets.Domain.Entities.Riders;
-using AirCabs.Tickets.Domain.UsesCases.BuyTickets;
+using AirCabs.Tickets.Domain.UsesCases.BuyTickets.BuyTicketsCash;
 using Xunit;
 
 namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets.Steps;
@@ -27,7 +27,7 @@ public class BuyTicketCashSteps
         var sut = new BuyTicketCashUseCase(zoneQueries, _buyTicketContext.TicketCommandsMock,
             _buyTicketContext.RiderWaitingQueueMock);
 
-        var totalPayed = new Cash(payAmount);
+        var totalPayed = new Money(payAmount);
         var riderName = new RiderName(_anonymousRiderContext.FirstName, _anonymousRiderContext.LastName);
         var buyTicketCashRequest = new BuyTicketCashRequest(riderName, _buyTicketContext.Destination,totalPayed);
         
@@ -40,7 +40,7 @@ public class BuyTicketCashSteps
     [Then(@"the rider get a change of (.*)")]
     public void ThenTheRiderGetAChangeOf(decimal change)
     {
-        Assert.Equal(new Cash(change), _buyTicketContext.TicketCashResult.Change);
+        Assert.Equal(new Money(change), _buyTicketContext.TicketCashResult.Change);
     }
 
     [Given(@"destination address is outside the covered area, the closest alternative with a price of (.*) will be chosen")]

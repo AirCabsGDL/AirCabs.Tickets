@@ -5,15 +5,15 @@ namespace AirCabs.Tickets.BehaviorTests.Mocks;
 
 public class TicketCommandsMock : ITicketCommands
 {
-    private readonly List<TicketCash> _tickets;
-    public IReadOnlyList<TicketCash> Tickets => _tickets.AsReadOnly();
+    private readonly List<ITicket> _tickets;
+    public IReadOnlyList<ITicket> Tickets => _tickets.AsReadOnly();
 
     public TicketCommandsMock()
     {
-        _tickets = new List<TicketCash>();
+        _tickets = new List<ITicket>();
     }
 
-    public void Save(TicketCash ticketCash)
+    public void Save(ITicket ticketCash)
     {
         _tickets.Add(ticketCash);
     }

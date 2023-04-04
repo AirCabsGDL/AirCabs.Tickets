@@ -1,9 +1,10 @@
 using AirCabs.Tickets.Domain.Entities;
 using AirCabs.Tickets.Domain.Entities.Addresses;
 using AirCabs.Tickets.Domain.Entities.Riders;
+using AirCabs.Tickets.Domain.Entities.Tickets;
 using AirCabs.Tickets.Domain.Exceptions;
 using AirCabs.Tickets.Domain.Ports;
-using AirCabs.Tickets.Domain.UsesCases.BuyTickets;
+using AirCabs.Tickets.Domain.UsesCases.BuyTickets.BuyTicketsCash;
 using AirCabs.Tickets.Tests.Mocks;
 using Moq;
 using Xunit;
@@ -16,9 +17,9 @@ public class BuyTicketCashTest
     public void Try_to_buy_a_ticket_with_insufficient_amount()
     {
         // Arrange
-        var ticketPrice = new Cash(450.00m);
+        var ticketPrice = new Money(450.00m);
         var riderName = new RiderName("John", "Doe");
-        var cashAmount = new Cash(300.00m);
+        var cashAmount = new Money(300.00m);
 
         var address = new Address("Fake Street", "City", "Fake State", "Country", "23452");
         var zone = new Zone("Zone A", ticketPrice);
@@ -43,9 +44,9 @@ public class BuyTicketCashTest
     public void Buy_a_ticket_successfully()
     {
         // Arrange
-        var ticketPrice = new Cash(450.00m);
+        var ticketPrice = new Money(450.00m);
         var riderName = new RiderName("John", "Doe");
-        var cashAmount = new Cash(500.00m);
+        var cashAmount = new Money(500.00m);
         var expectedChange = cashAmount.Subtract(ticketPrice);
 
         var address = new Address("Fake Street", "City", "Fake State", "Country", "23452");
@@ -82,8 +83,8 @@ public class BuyTicketCashTest
     public void Buy_a_ticket_without_rider_name_successfully()
     {
         // Arrange
-        var ticketPrice = new Cash(450.0m);
-        var cashAmount = new Cash(500.00m);
+        var ticketPrice = new Money(450.0m);
+        var cashAmount = new Money(500.00m);
         var expectedChange = cashAmount.Subtract(ticketPrice);
 
         var address = new Address("Fake Street", "City", "Fake State", "Country", "23452");
@@ -104,6 +105,7 @@ public class BuyTicketCashTest
         // Assert
         Assert.NotNull(ticket);
         Assert.NotNull(ticket.Id);
+        Assert.IsType<TicketCash>(ticket);
         Assert.Equal(address, ticket.Summary.Destination); 
         Assert.Equal(zone.Price, ticket.Summary.Cost);
         Assert.Equal(expectedChange, ticket.Change);
@@ -117,8 +119,8 @@ public class BuyTicketCashTest
     public void Buy_a_ticket_an_send_ticket_to_rider_waiting_queue()
     {
         // Arrange
-        var ticketPrice = new Cash(450.0m);
-        var cashAmount = new Cash(500.00m);
+        var ticketPrice = new Money(450.0m);
+        var cashAmount = new Money(500.00m);
         var address = new Address("Fake Street", "City", "Fake State", "Country", "23452");
         var zone = new Zone("Zone A", ticketPrice);
 

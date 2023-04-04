@@ -27,7 +27,7 @@ public class BuyTicketSuccessSteps
     [Given(@"destination address is in Zone A has a price of (.*)")]
     public void GivenDestinationAddressIsInZoneAHasAPriceOf(decimal zonePrice)
     {
-        _buyTicketContext.DestinationZone = new Zone("Zone A", new Cash(zonePrice));
+        _buyTicketContext.DestinationZone = new Zone("Zone A", new Money(zonePrice));
     }
 
     [Given(@"the destination address is outside the coverage zones")]
@@ -36,8 +36,8 @@ public class BuyTicketSuccessSteps
         ScenarioContext.StepIsPending();
     }
 
-    [Then(@"a new ticketCash to the destination is created")]
-    public void ThenANewTicketToTheDestinationIsCreated()
+    [Then(@"a new ticket payment with cash is created")]
+    public void ThenANewTicketPaymentWithCashIsCreated()
     {
         Assert.NotNull(_buyTicketContext.TicketCashResult);
         Assert.Equal(_buyTicketContext.Destination, _buyTicketContext.TicketCashResult.Summary.Destination);

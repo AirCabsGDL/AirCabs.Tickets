@@ -5,7 +5,7 @@ namespace AirCabs.Tickets.Domain.Entities.Tickets;
 
 public class TicketSummary
 {
-    public TicketSummary(Address destination, Cash cost, Cash totalPayed, IRider? rider)
+    public TicketSummary(Address destination, Money cost, Money totalPayed, IRider? rider)
     {
         Destination = destination;
         Cost = cost;
@@ -13,12 +13,12 @@ public class TicketSummary
         TotalPayed = totalPayed;
     }
 
-    public Cash TotalPayed { get; private set; }
+    public Money TotalPayed { get; private set; }
     public Address Destination { get; }
-    public Cash Cost { get; }
+    public Money Cost { get; }
     public IRider? Rider { get; }
 
-    public void ChangeTotalPayed(Cash amount)
+    public void ChangeTotalPayed(Money amount)
     {
         TotalPayed = amount;
     }

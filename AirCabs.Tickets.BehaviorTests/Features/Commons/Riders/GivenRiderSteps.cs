@@ -13,7 +13,7 @@ public class GivenRiderSteps
     }
     
     
-    [Given(@"an anonymous rider who wants to buy a ticketCash")]
+    [Given(@"an anonymous rider who wants to buy a ticket")]
     public void GivenAnAnonymousRiderWhoWantsToBuyATicket()
     {
         _anonymousRider.FirstName = "John";

@@ -1,8 +1,8 @@
 namespace AirCabs.Tickets.Domain.Entities;
 
-public class Zone
+public record Zone
 {
-    public Zone(string name, Cash price)
+    public Zone(string name, Money price)
     {
         if (string.IsNullOrEmpty(name))
             throw new ArgumentNullException(nameof(name), "Zone name cannot be null or empty");
@@ -16,5 +16,5 @@ public class Zone
 
     public string Name { get; }
     
-    public Cash Price { get; }
+    public Money Price { get; }
 }
