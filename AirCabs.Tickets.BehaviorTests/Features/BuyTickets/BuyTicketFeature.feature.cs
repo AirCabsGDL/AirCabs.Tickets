@@ -81,17 +81,14 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="An anonymous rider wants to buy a cab ticket at the airport stand to travel to th" +
-            "eir destination paying with cash successfully.")]
+        [Xunit.SkippableFactAttribute(DisplayName="Buy a ticket with cash successfully")]
         [Xunit.TraitAttribute("FeatureTitle", "Buy a Ticket")]
-        [Xunit.TraitAttribute("Description", "An anonymous rider wants to buy a cab ticket at the airport stand to travel to th" +
-            "eir destination paying with cash successfully.")]
-        public virtual void AnAnonymousRiderWantsToBuyACabTicketAtTheAirportStandToTravelToTheirDestinationPayingWithCashSuccessfully_()
+        [Xunit.TraitAttribute("Description", "Buy a ticket with cash successfully")]
+        public virtual void BuyATicketWithCashSuccessfully()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("An anonymous rider wants to buy a cab ticket at the airport stand to travel to th" +
-                    "eir destination paying with cash successfully.", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Buy a ticket with cash successfully", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 6
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -125,7 +122,7 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets
         testRunner.When("the anonymous rider pays 400.00 in cash", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 11
-        testRunner.Then("a new ticket to the destination is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("a new ticket payment with cash is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 12
         testRunner.And("the rider get a change of 50.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -137,17 +134,14 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="An anonymous rider wants to buy a cab ticket at the airport stand to travel to th" +
-            "eir destination paying with a credit card successfully.")]
+        [Xunit.SkippableFactAttribute(DisplayName="Buy a ticket with credit card successfully")]
         [Xunit.TraitAttribute("FeatureTitle", "Buy a Ticket")]
-        [Xunit.TraitAttribute("Description", "An anonymous rider wants to buy a cab ticket at the airport stand to travel to th" +
-            "eir destination paying with a credit card successfully.")]
-        public virtual void AnAnonymousRiderWantsToBuyACabTicketAtTheAirportStandToTravelToTheirDestinationPayingWithACreditCardSuccessfully_()
+        [Xunit.TraitAttribute("Description", "Buy a ticket with credit card successfully")]
+        public virtual void BuyATicketWithCreditCardSuccessfully()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("An anonymous rider wants to buy a cab ticket at the airport stand to travel to th" +
-                    "eir destination paying with a credit card successfully.", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Buy a ticket with credit card successfully", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 15
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -178,18 +172,12 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets
         testRunner.And("destination address is in Zone A has a price of 350.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
 #line 19
-        testRunner.And("using credit card as payment method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
-#line hidden
-#line 20
-        testRunner.And("anonymous rider has enough funds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
-#line hidden
-#line 21
         testRunner.When("the anonymous rider pays 350.00 with a credit card", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 22
-        testRunner.Then("a new ticket to the destination is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 20
+        testRunner.Then("a new ticket payment with credit card is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 23
+#line 21
         testRunner.And("the anonymous rider is added to the waiting queue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -207,7 +195,7 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("An anonymous rider wants to buy a cab ticket at the airport stand to travel to th" +
                     "eir destination but rejects the offer.", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 25
+#line 23
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -227,19 +215,19 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets
             else
             {
                 this.ScenarioStart();
-#line 26
+#line 24
         testRunner.Given("an anonymous rider who wants to buy a ticket", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 27
+#line 25
         testRunner.And("the anonymous rider provides a destination address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 28
+#line 26
         testRunner.And("destination address is in Zone A has a price of 350.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
-#line 29
+#line 27
         testRunner.When("the anonymous rider reject the offer because is to expensive", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 30
+#line 28
         testRunner.Then("the ticket is closed as reject with the next reason is to expensive", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -257,7 +245,7 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("An anonymous rider wants to buy a cab ticket at the airport stand to travel to th" +
                     "eir destination, but the credit card is rejected.", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 32
+#line 30
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -277,28 +265,28 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets
             else
             {
                 this.ScenarioStart();
-#line 33
+#line 31
         testRunner.Given("an anonymous rider who wants to buy a ticket", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 34
+#line 32
         testRunner.And("the anonymous rider provides a destination address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 35
+#line 33
         testRunner.And("destination address is in Zone A has a price of 350.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
-#line 36
+#line 34
         testRunner.And("using credit card as payment method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
-#line 37
+#line 35
         testRunner.And("anonymous rider does not have enough funds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
-#line 38
+#line 36
         testRunner.When("the anonymous rider attempts to buy a ticket with a credit card", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 39
+#line 37
         testRunner.Then("the digital payment is rejected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 40
+#line 38
         testRunner.And("the system rise an payment rejected error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -316,7 +304,7 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("An anonymous rider wants to buy a cab ticket at the airport stand with cash, to t" +
                     "ravel to an not covered area.", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 42
+#line 40
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -336,29 +324,29 @@ namespace AirCabs.Tickets.BehaviorTests.Features.BuyTickets
             else
             {
                 this.ScenarioStart();
-#line 43
+#line 41
         testRunner.Given("an anonymous rider who wants to buy a ticket", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 44
+#line 42
         testRunner.And("the anonymous rider provides a destination address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 45
+#line 43
         testRunner.And("destination address is outside the covered area, the closest alternative with a p" +
                         "rice of 450.00 will be chosen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
-#line 46
+#line 44
         testRunner.When("the anonymous rider pays 500.00 in cash", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 47
+#line 45
         testRunner.Then("a new ticket to the destination is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 48
+#line 46
         testRunner.And("the rider get a change of 50.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 49
+#line 47
         testRunner.And("the anonymous rider is added to the waiting queue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 50
+#line 48
         testRunner.And("a notification event about ride to a not covered area was raised", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
