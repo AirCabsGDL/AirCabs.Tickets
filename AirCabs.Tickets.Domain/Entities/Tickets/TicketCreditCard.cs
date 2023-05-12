@@ -30,6 +30,7 @@ public class TicketCreditCard : ITicket
     }
 
     public Id Id { get; }
+    
     public TicketSummary Summary { get; }
 
     public Zone DestinationZone { get; }
