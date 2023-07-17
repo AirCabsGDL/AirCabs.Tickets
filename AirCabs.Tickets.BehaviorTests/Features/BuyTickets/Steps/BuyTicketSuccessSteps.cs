@@ -27,7 +27,7 @@ public class BuyTicketSuccessSteps
     [Given(@"destination address is in Zone A has a price of (.*)")]
     public void GivenDestinationAddressIsInZoneAHasAPriceOf(decimal zonePrice)
     {
-        _buyTicketContext.DestinationZone = new Zone("Zone A", new Cash(zonePrice));
+        _buyTicketContext.DestinationZone = new Zone("Zone A", new Money(zonePrice));
     }
 
     [Given(@"the destination address is outside the coverage zones")]
@@ -36,22 +36,22 @@ public class BuyTicketSuccessSteps
         ScenarioContext.StepIsPending();
     }
 
-    [Then(@"a new ticket to the destination is created")]
-    public void ThenANewTicketToTheDestinationIsCreated()
+    [Then(@"a new ticket payment with cash is created")]
+    public void ThenANewTicketPaymentWithCashIsCreated()
     {
-        Assert.NotNull(_buyTicketContext.TicketResult);
-        Assert.Equal(_buyTicketContext.Destination, _buyTicketContext.TicketResult.Destination);
-        Assert.Equal(_buyTicketContext.DestinationZone.Price, _buyTicketContext.TicketResult.Cost);
-        Assert.Equal(_buyTicketContext.TotalPayed, _buyTicketContext.TicketResult.TotalPayed);
-        Assert.NotNull(_buyTicketContext.TicketResult.Rider);
-        Assert.Equal(_anonymousRider.FirstName, _buyTicketContext.TicketResult.Rider!.Name.FirstName);
-        Assert.Equal(_anonymousRider.LastName, _buyTicketContext.TicketResult.Rider!.Name.LastName);
+        Assert.NotNull(_buyTicketContext.TicketCashResult);
+        Assert.Equal(_buyTicketContext.Destination, _buyTicketContext.TicketCashResult.Summary.Destination);
+        Assert.Equal(_buyTicketContext.DestinationZone.Price, _buyTicketContext.TicketCashResult.Summary.Cost);
+        Assert.Equal(_buyTicketContext.TotalPayed, _buyTicketContext.TicketCashResult.Summary.TotalPayed);
+        Assert.NotNull(_buyTicketContext.TicketCashResult.Summary.Rider);
+        Assert.Equal(_anonymousRider.FirstName, _buyTicketContext.TicketCashResult.Summary.Rider!.Name.FirstName);
+        Assert.Equal(_anonymousRider.LastName, _buyTicketContext.TicketCashResult.Summary.Rider!.Name.LastName);
     }
 
     [Then(@"the anonymous rider is added to the waiting queue")]
     public void ThenTheAnonymousRiderIsAddedToTheWaitingQueue()
     {
         Assert.Single(_buyTicketContext.RiderWaitingQueueMock.Tickets);
-        Assert.Equal(_buyTicketContext.TicketResult, _buyTicketContext.RiderWaitingQueueMock.Tickets[0]);
+        Assert.Equal(_buyTicketContext.TicketCashResult, _buyTicketContext.RiderWaitingQueueMock.Tickets[0]);
     }
 }

@@ -1,14 +1,14 @@
 using AirCabs.Tickets.Domain.Entities.Tickets;
 using AirCabs.Tickets.Domain.Ports;
 
-namespace AirCabs.Tickets.Domain.UsesCases.BuyTickets;
+namespace AirCabs.Tickets.Domain.UsesCases.BuyTickets.BuyTicketsCash;
 
 public class BuyTicketCashUseCase : IBuyTicketCashUseCase
 {
     private readonly IZoneQueries _zoneQueries;
     private readonly ITicketCommands _ticketCommands;
     private readonly IRiderWaitingQueue _riderWaitingQueue;
-    private readonly TicketCashFactory _ticketFactory;
+    private readonly TicketFactory _ticketFactory;
 
     public BuyTicketCashUseCase(IZoneQueries zoneQueries, ITicketCommands ticketCommands,
         IRiderWaitingQueue riderWaitingQueue)
@@ -16,13 +16,13 @@ public class BuyTicketCashUseCase : IBuyTicketCashUseCase
         _zoneQueries = zoneQueries;
         _ticketCommands = ticketCommands;
         _riderWaitingQueue = riderWaitingQueue;
-        _ticketFactory = new TicketCashFactory();
+        _ticketFactory = new TicketFactory();
     }
 
-    public Ticket Execute(BuyTicketCashRequest request)
+    public TicketCash Execute(BuyTicketCashRequest request)
     {
         var zone = _zoneQueries.GetZoneByAddress(request.Destination);
-        var ticket = _ticketFactory.CreateTicket(request.RiderName, request.Destination, zone);
+        var ticket = _ticketFactory.CreateTicketCash(request.RiderName, request.Destination, zone);
 
         var cashAmount = request.Amount;
 

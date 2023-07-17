@@ -5,5 +5,7 @@ namespace AirCabs.Tickets.Domain.Entities.Tickets;
 
 public interface ITicketFactory
 {
-    public Ticket CreateTicket(RiderName? rider, Address destination, Zone destinationZone);
+    public TicketCash CreateTicketCash(RiderName? rider, Address destination, Zone destinationZone);
+    
+    public TicketCreditCard CreateTicketCreditCard(RiderName? rider, Address destination, Zone destinationZone);
 }

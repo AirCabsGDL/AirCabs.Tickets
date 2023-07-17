@@ -4,5 +4,5 @@ namespace AirCabs.Tickets.Domain.Ports;
 
 public interface IRiderWaitingQueue
 {
-    public void AddTicket(Ticket ticket);
+    public void AddTicket(TicketCash ticketCash);
 }

@@ -4,5 +4,5 @@ namespace AirCabs.Tickets.Domain.Ports;
 
 public interface ITicketCommands
 {
-    void Save(Ticket ticket);
+    void Save(ITicket ticketCash);
 }

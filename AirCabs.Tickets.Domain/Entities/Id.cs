@@ -1,11 +1,6 @@
 namespace AirCabs.Tickets.Domain.Entities;
 
-public record Id
+public record Id()
 {
-    public string Value { get; init; }
-    
-    public Id()
-    {
-        Value = Guid.NewGuid().ToString();
-    }
+    public string Value { get; init; } = Guid.NewGuid().ToString();
 }
